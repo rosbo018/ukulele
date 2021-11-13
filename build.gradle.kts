@@ -15,11 +15,12 @@ java.sourceCompatibility = JavaVersion.VERSION_11
 repositories {
     mavenCentral()
     maven { url = uri("https://m2.dv8tion.net/releases") }
+    maven { url = uri("https://jitpack.io") }
 }
 
 dependencies {
     implementation("net.dv8tion:JDA:4.3.0_277")
-    implementation("com.sedmelluq:lavaplayer:1.3.78")
+    implementation("com.github.sedmelluq:lavaplayer:PR650-SNAPSHOT")
     implementation("org.springframework.boot:spring-boot-starter-data-r2dbc")
 
     runtimeOnly("com.h2database:h2")
