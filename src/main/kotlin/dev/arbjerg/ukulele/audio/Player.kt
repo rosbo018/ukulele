@@ -100,6 +100,23 @@ class Player(val beans: Beans, guildProperties: GuildProperties) : AudioEventAda
         queue.clear()
         player.stopTrack()
     }
+    fun seek(seconds: Long){
+        val track = player.playingTrack
+        val milliseconds = seconds * 1000
+        if(track != null && track.isSeekable) {
+            if (track.position + milliseconds <= track.duration){
+                log.info(" seeking from ${track.position} to ${track.position + milliseconds} ${track.duration}")
+                track.position =  track.position + milliseconds
+            }
+        }
+    }
+    fun setTime(seconds: Long){
+        val track = player.playingTrack
+        val milliseconds = seconds * 1000
+        if(track != null && track.isSeekable && milliseconds <= track.duration) {
+            track.position = milliseconds
+        }
+    }
 
     override fun onTrackEnd(player: AudioPlayer, track: AudioTrack, endReason: AudioTrackEndReason) {
         val new = queue.take() ?: return
