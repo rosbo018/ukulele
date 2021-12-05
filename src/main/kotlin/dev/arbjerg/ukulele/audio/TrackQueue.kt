@@ -18,4 +18,8 @@ class TrackQueue {
         queue.removeAll(list)
         return list
     }
+    fun shuffleTracks(): Int {
+        queue.shuffle()
+        return queue.size
+    }
 }

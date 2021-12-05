@@ -47,7 +47,6 @@ class Player(val beans: Beans, guildProperties: GuildProperties) : AudioEventAda
         player.playingTrack?.let { tracks.add(0, it) }
         return tracks
     }
-
     val remainingDuration: Long get() {
         var duration = 0L
         if (player.playingTrack != null && !player.playingTrack.info.isStream)
@@ -68,6 +67,13 @@ class Player(val beans: Beans, guildProperties: GuildProperties) : AudioEventAda
             return true
         }
         return false
+    }
+
+    /**
+    * @return the number of shuffled tracks
+    * */
+    fun shuffleTracks(): Int {
+        return queue.shuffleTracks()
     }
 
     fun skip(range: IntRange): List<AudioTrack> {
