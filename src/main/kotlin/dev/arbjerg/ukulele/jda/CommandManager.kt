@@ -35,6 +35,10 @@ class CommandManager(
         contextBeans.commandManager = this
     }
 
+    fun getAllCommands(): Set<String>{
+        return registry.keys
+    }
+
     operator fun get(commandName: String) = registry[commandName]
 
     fun onMessage(guild: Guild, channel: TextChannel, member: Member, message: Message) {
