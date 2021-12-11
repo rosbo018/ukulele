@@ -80,4 +80,6 @@ class PlayCommand(
         addUsage("<url>")
         addDescription("Add the given track to the queue")
     }
+    //TODO: add a way to immideatly play a certain song and send the currently playing song to the front of the list
+    //and have it save the currently playing position?
 }

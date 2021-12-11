@@ -76,6 +76,10 @@ class Player(val beans: Beans, guildProperties: GuildProperties) : AudioEventAda
         return queue.shuffleTracks()
     }
 
+    fun shuffleTracks(start : Int, end : Int): Int {
+        return queue.shuffleTracks(start, end)
+    }
+
     fun skip(range: IntRange): List<AudioTrack> {
         val rangeFirst = range.first.coerceAtMost(queue.tracks.size)
         val rangeLast = range.last.coerceAtMost(queue.tracks.size)

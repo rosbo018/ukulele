@@ -22,4 +22,8 @@ class TrackQueue {
         queue.shuffle()
         return queue.size
     }
+    fun shuffleTracks(start : Int, end : Int): Int {
+        queue.subList(start,end ) = queue.subList(start, end).shuffle()
+        return queue.size
+    }
 }
